@@ -1,5 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
+import { INFTAttribute } from "../NFTModal/NFTModal";
 
 const NFTCardStyled = styled.div`
     width: 200px;
@@ -12,7 +13,7 @@ const NFTCardStyled = styled.div`
 
 `;
 
-const NFTPhoto = styled.div`
+export const NFTPhoto = styled.div`
     display: block;
     width: 200px;
     height: 200px;
@@ -39,12 +40,15 @@ export interface INFTCard {
     name: string;
     symbol: string;
     copies: number;
-    image: string
+    image: string;
+    description: string;
+    attributes: INFTAttribute[];
+    toggleModal: () => void;
 }
 
 const NFTCard = (nft: INFTCard): JSX.Element => {
     return (
-        <NFTCardStyled >
+        <NFTCardStyled onClick={() => nft.toggleModal()} >
             <NFTPhoto style={{ backgroundImage: `url(${nft && nft.image})` }} />
             <div style={{ margin: 5 }}>
                 <NFTCollectionText>{nft && nft.symbol}</NFTCollectionText>

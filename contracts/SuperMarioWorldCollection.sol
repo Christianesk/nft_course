@@ -38,7 +38,7 @@ contract SuperMarioWorldCollection is ERC1155, Ownable {
                 abi.encodePacked(
                     baseUri, //URL
                     Strings.toString(_tokenId), //+tokenId
-                    "json" //+ Json
+                    ".json" //+ Json
                 )
             );
     }
